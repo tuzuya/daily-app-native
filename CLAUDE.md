@@ -89,15 +89,15 @@ Web版ではこれらは`src/app/api/tasks/route.ts`・`src/app/api/tasks/[id]/r
 
 ## 5. 技術スタック（決定事項）
 
-- **Flutter**: 3.47.5 (stable)
+- **Flutter**: WSL は 3.47.5、Mac は 3.41.6（Dart 3.11）。両方で動くよう `pubspec.yaml` の SDK 制約は `^3.11.0`
 - **状態管理**: Riverpod
 - **ルーティング**: go_router
-- **ローカルDB**: drift（sqlite3_flutter_libs経由）
+- **ローカルDB**: drift + drift_flutter（sqlite3 v3 系。旧来の sqlite3_flutter_libs は不要になったため入れていない）
 - **UUID生成**: `uuid`パッケージ（Dart側で生成。DB任せにしない。§3参照）
 - **ピクセルフォント**: Press Start 2P / DotGothic16 / Silkscreen を**アセットとして直接同梱**
   （google_fontsパッケージのランタイム取得ではなく、オフライン確実性を優先）
 
-まだ`pubspec.yaml`には反映していない。実装開始時に追加すること。
+フォント以外は `pubspec.yaml` に追加済み。
 
 ## 6. デザイン参照（正本はWeb版リポジトリ）
 
@@ -115,6 +115,15 @@ enum TaskCategory { vitality, intelligence, creative, recovery, quest }
 ```
 
 Web版側でこのファイルが変わったら `git log <path>` でこのハッシュ以降の差分を確認する。
+
+## 6.5 Claude Code 向け資料（`docs/claude/`）
+
+Claude Code に読ませる詳細資料は `docs/claude/` にまとめている（一覧は `docs/claude/README.md`）。
+UI・機能の優先度や文言・演出を判断するときは、先に以下を読むこと。
+
+- `docs/claude/ui-ux-design.md` — ビジョン・コンセプト・スコープ・トンマナ（Notion「UI/UX設計」の写し）
+- `docs/claude/personas.md` — ペルソナ3人
+- `docs/claude/project-stories.md` — ペルソナごとの利用ストーリー
 
 ## 7. 実装の進め方（キャッチアップ順序）
 
