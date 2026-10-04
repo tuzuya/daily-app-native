@@ -10,4 +10,7 @@ describe("toLocalDateString", () => {
   test("ローカル時刻の23時59分はまだ当日", () => {
     expect(toLocalDateString(new Date(2026, 0, 5, 23, 59))).toBe("2026-01-05")
   });
+  test("2桁の月で余分に０埋めしないかチェック", () => {
+    expect(toLocalDateString(new Date(2026, 11, 11, 12, 0))).toBe("2026-12-11")
+  });
 });
