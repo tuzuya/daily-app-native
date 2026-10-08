@@ -33,9 +33,10 @@
   現時点で未登録（要検討）。旧Flutter版ドキュメントにあった無料Personal Teamでの
   7日間失効ルールは、ストア外部公開を前提とする本プロジェクトでは適用されない
 - **Google Play Developer登録**: 一回$25。未登録（要検討）
-- **橋渡し**: Git（GitHub プライベートリポジトリ `tuzuya/daily-app-native`）
+- **橋渡し**: Git（GitHub 公開リポジトリ `tuzuya/daily-app-native`。秘密情報はコミットしない）
 - **アプリ識別子（仮）**: iOS `bundleIdentifier` / Android `package` ともに
-  `com.gmail.tuzuya1220.dailyappnative`を仮置き（`app.json`/`app.config.ts`作成時に確定）
+  `io.github.tuzuya.dailyappnative`を仮置き（`app.json`/`app.config.ts`作成時に確定）。
+  逆ドメインは GitHub Pages の `tuzuya.github.io` に合わせた。ストア公開後は変更不可
 
 ## 2. Web版との差分（意図的な設計変更）
 
