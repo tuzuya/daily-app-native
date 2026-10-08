@@ -9,10 +9,10 @@
     "userInterfaceStyle": "automatic",
     "ios": {
       "icon": "./assets/expo.icon",
-      "bundleIdentifier": "com.gmail.tuzuya1220.dailyappnative"
+      "bundleIdentifier": "io.github.tuzuya.dailyappnative"
     },
     "android": {
-      "package": "com.gmail.tuzuya1220.dailyappnative",
+      "package": "io.github.tuzuya.dailyappnative",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
