@@ -9,6 +9,8 @@ Claude Code がタスクに応じて参照する Markdown をここにまとめ�
 | [ui-ux-design.md](ui-ux-design.md) | ビジョン・コンセプト・ターゲット・スコープ・トンマナ・アイデアメモ | UI/デザイン/機能の優先度を判断するとき |
 | [personas.md](personas.md) | ペルソナ3人（ユウト・ミサキ・ナオコ）と比較表 | 機能・文言・演出がユーザーに合うか判断するとき |
 | [project-stories.md](project-stories.md) | ペルソナごとの利用ストーリー | 体験フロー・演出を設計するとき |
+| [vertical-slices.md](vertical-slices.md) | CLAUDE.md §7 の 3〜9 を機能ごとの縦切りに分けた実装チェックリスト（Web版の仕様つき・coding-coach の進行メモ） | coding-coach で次のスライスに着手するとき |
+| [coach-knowledge.md](coach-knowledge.md) | coding-coach が使う、ユーザーの文法の習熟度（使える / 説明すれば使える / 未習） | coding-coach でヒントを出す前・チェックが通った後 |
 
 ## 運用ルール
 
