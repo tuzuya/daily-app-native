@@ -153,6 +153,28 @@ UI・機能の優先度や文言・演出を判断するときは、先に以下
 - `docs/claude/personas.md` — ペルソナ3人
 - `docs/claude/project-stories.md` — ペルソナごとの利用ストーリー
 
+## 6.6 Figmaファイルの運用ルール
+
+対象: daily-app-Redesign（fileKey `yp8EzSlzOom9KwycPKKSaD`）
+
+| ページ | 役割 | Claude Code の扱い |
+|---|---|---|
+| `HOME (Pixel)` | **デザインの正本**。実装と確認に使う | 画面・コンポーネントの追加や変更はここで行う。RN実装もここを参照する |
+| `idea` | ちょっとした思いつきを試す場所 | 指示があったときだけ書き込む。ここの内容を実装やTIME TONEに反映するのは、ユーザーが「採用」と言ったときだけ |
+| `TIME TONE (Pixel)` | HOMEで確定した画面の時間帯別バージョン（Midnight / Morning / Afternoon） | 直接デザインしない。HOMEの変更が確定したら、HOMEから作り直す（下記の手順） |
+
+### TIME TONE の作り方（HOMEから派生させる）
+- 色は Variables コレクション `daily-app / pixel` のモードで切り替える（Midnight v2 / Morning v2 / Afternoon v2）。
+  HOMEの画面を複製し、その時間帯のモードを設定する
+- トークンに紐づいていない色は、対応するトークンに紐づけ直す
+- Morning は明るい背景のため、背景の上の金色の文字は `gold/dark` に、HOME系の lv-text と hint は `ink` に置き換える
+- HOME系の画面は idea ページ「完成版各時間帯UIトンマナ」のフレームを元にする（背景イラストを含むため）
+
+### 注意
+- 作業の前に `use_figma` で `figma.root.children` を読んで、現在のページ構成を確認する
+  （`get_metadata` のページ一覧は古いことがある）
+- 既存ノードの削除や大きな書き換えは、事前にユーザーに確認する
+
 ## 7. 実装の進め方（キャッチアップ順序）
 
 1. Expoプロジェクトの再スキャフォールド（§5の依存関係を導入）
