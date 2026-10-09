@@ -1,4 +1,12 @@
-import { calcLevel, shouldRunDaybreak, TITLE_MAX_LENGTH, validateTitle } from "./rules";
+import {
+  calcLevel,
+  inferLevel,
+  levelToPoint,
+  shouldRunDaybreak,
+  TASK_LEVELS,
+  TITLE_MAX_LENGTH,
+  validateTitle,
+} from "./rules";
 
 describe("validateTitle", () => {
   test("空文字は empty", () => {
@@ -46,5 +54,38 @@ describe("shouldRunDaybreak", () => {
   });
   test("初回起動（null）は発火する（対象0件ならUI側でスキップする想定）", () => {
     expect(shouldRunDaybreak(null, "2026-10-05")).toBe(true);
+  });
+});
+
+describe("levelToPoint", () => {
+  // 期待値は Web版 lib/task-design.ts の LEVELS と同じ
+  test.each([
+    ["easy", 5],
+    ["normal", 10],
+    ["hard", 20],
+    ["extra", 30],
+  ] as const)("%s → %i", (level, point) => {
+    expect(levelToPoint(level)).toBe(point);
+  });
+});
+
+describe("inferLevel", () => {
+  test.each([
+    // [保存済みpoint, 期待する難易度]
+    [0, "easy"],
+    [9, "easy"], // normal の閾値の1つ手前
+    [10, "normal"],
+    [19, "normal"],
+    [20, "hard"],
+    [29, "hard"],
+    [30, "extra"],
+    [100, "extra"], // 表より大きい値も extra に丸める
+  ] as const)("point %i → %s", (point, level) => {
+    expect(inferLevel(point)).toBe(level);
+  });
+
+  // 難易度を TASK_LEVELS に足したのに inferLevel を直し忘れると、ここが落ちる
+  test.each(TASK_LEVELS)("%s は levelToPoint → inferLevel で元に戻る", (level) => {
+    expect(inferLevel(levelToPoint(level))).toBe(level);
   });
 });

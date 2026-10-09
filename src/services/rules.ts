@@ -23,3 +23,31 @@ export function shouldRunDaybreak(lastDaybreakDate: string | null, today: string
   if(lastDaybreakDate == null) return true;
   return lastDaybreakDate !== today;
 }
+
+// synced from daily-app@2f4335c (lib/task-design.ts) 
+export const TASK_LEVELS = [
+  "easy",
+  "normal",
+  "hard",
+  "extra"
+] as const;
+export type TaskLevel = (typeof TASK_LEVELS)[number];
+
+export const LEVEL_POINTS: Record<TaskLevel, number> = {
+  easy: 5,
+  normal: 10,
+  hard: 20,
+  extra: 30
+};
+
+export function levelToPoint(level: TaskLevel): number {
+  return LEVEL_POINTS[level];
+}
+
+export function inferLevel(point: number): TaskLevel {
+  if(point < LEVEL_POINTS.normal) return "easy";
+  if(point < LEVEL_POINTS.hard) return "normal";
+  if(point < LEVEL_POINTS.extra) return "hard";
+  return "extra";
+}
+
