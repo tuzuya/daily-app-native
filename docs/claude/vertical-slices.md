@@ -50,7 +50,7 @@ Web版の機能は `daily-app@3032bbb` のコードから洗い出した（各�
 
 **進行メモ（coding-coach）**
 
-現在地: **ステップ8a**（ヒントはまだ出しただけ。ユーザーが未着手）。ヒントレベル3
+現在地: **ステップ8b**（未着手）。ヒントレベル3（8aは途中で「難しい」とのことでLv.4に上げた）
 
 決定済みの方針
 - サービス関数は `db` を第1引数で受け取る。タイトル検証の失敗は `TaskTitleValidationError` を throw
@@ -68,7 +68,7 @@ Web版の機能は `daily-app@3032bbb` のコードから洗い出した（各�
 5. ✅ `_layout.tsx` に `QueryClientProvider`
 6. ✅ 6a `useTodayTasks` / 6b `useCreateTask`
 7. ✅ Today 画面（`FlatList`、読み込み中・エラー・0件の表示）
-8. 8a ＋ボタン（`headerRight` の `Link`）と空のモーダル画面 `task-form.tsx`
+8. ✅ 8a ＋ボタン（`headerRight` の `Link`）と空のモーダル画面 `task-form.tsx`
    8b タイトル入力 →「作成」で `mutate` → 一覧に出る → モーダルを閉じる（`useState` / `TextInput` / 成功時に `router.back()`）。
    残りの項目は仮の固定値（category・level `normal`・estimateTime 25・status `today`）
    8c 空タイトルで作成したときのエラー表示

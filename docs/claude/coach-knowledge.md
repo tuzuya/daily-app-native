@@ -53,6 +53,8 @@ coding-coach はヒントを出す前にここを読み、「使える」以外�
 | `FlatList` の `data` / `keyExtractor` / `renderItem`。引数名は受け取る側が自由に決める／`({ item })` は引数での分割代入なので名前固定 | 2026-10-07 | 7で骨組みどおり書けたが「`renderItem` の書き方が意味不明」「`keyExtractor` の引数名が自由なのはなぜ」と質問あり。4bの `.map((task) => ...)` と同じ話として説明済み。続けて「`keyExtractor` に渡しているのは何か」と質問あり（`data` は値、`keyExtractor` / `renderItem` は1件ごとのルール＝関数。Web の `.map` ＋ `key` を3つに分けたもの、と説明） |
 | `if (isPending) return ...` の早期 return で出し分け、その後 `data` が絞り込まれる | 2026-10-07 | 7で自力で書けた |
 | `<View style={styles.x}>` で `StyleSheet.create` のスタイルを当てる | 2026-10-09 | 7で ESLint の未使用警告から自力で直せた |
+| 画面遷移のパス（`/` から始まる絶対パスと `../` の相対パス）。Expo Router では `src/app/` が `/` | 2026-10-09 | 8aで `href="../task-form"` と書いた。ファイルの置き場所と URL の対応として説明済み |
+| `<Stack>` の子に `<Stack.Screen name options />` を書いてルートごとに設定する／自分で閉じるタグ `/>` | 2026-10-09 | 8aで `<Stack.Screen ...></Stack>` と閉じタグを取り違えた |
 | JSX の `{ }` で式を埋め込む（`<Text>{item.title}</Text>`）。文字は `<Text>` の中に書く | 2026-10-07 | 7で説明済み。Web の React と同じ |
 
 ## 未習（扱う予定が近いもの）

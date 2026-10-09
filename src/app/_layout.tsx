@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useMigrations } from "drizzle-orm/expo-sqlite/migrator";
-import { Stack } from "expo-router";
+import { Link, Stack } from "expo-router";
 import { StyleSheet, Text, View } from "react-native";
 
 import { db } from "@/db/client";
@@ -26,7 +26,12 @@ export default function RootLayout() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Stack />
+      <Stack>
+        <Stack.Screen name="index" options={{ title: "Today", headerRight: () =>
+          <Link href="/task-form">+</Link>
+        }}/>
+        <Stack.Screen name="task-form" options={{ presentation: "modal"}}/>
+      </Stack>
     </QueryClientProvider>
   );
 }
